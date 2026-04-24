@@ -3,109 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>نماذج دعوات زفاف تفاعلية</title>
+<title>نماذج دعوات زفاف احترافية</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Tajawal&family=Aref+Ruqaa&display=swap" rel="stylesheet">
 
 <style>
-body { font-family: 'Tajawal', sans-serif; background:#f5f5f5; }
+body{font-family:'Tajawal',sans-serif;background:#0f0f0f;color:#fff;overflow-x:hidden;}
+.section{min-height:100vh;display:none;padding:24px;}
+.active{display:block;animation:fade .8s ease;}
+@keyframes fade{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border-radius:20px;padding:20px;}
+.parallax{height:260px;border-radius:20px;background-size:cover;background-position:center;}
+.nav button{background:#1f1f1f;padding:10px 14px;border-radius:12px;margin:6px;}
+.nav button:hover{background:#333;}
+
 .amiri{font-family:'Amiri',serif;}
 .ruqaa{font-family:'Aref Ruqaa',serif;}
-.section{margin-bottom:60px;}
+.btn{transition:.25s}
+.btn:hover{transform:scale(1.05)}
 </style>
 </head>
 
-<body class="p-4">
+<body>
 
-<h1 class="text-center text-2xl mb-10 font-bold">نماذج دعوات زفاف تفاعلية</h1>
-
-<!-- ================= 1 ISLAMIC ARABIC ================= -->
-<div class="section bg-white p-6 rounded-xl shadow text-center">
-<h2 class="ruqaa text-3xl text-green-700 mb-4">دعوة زفاف إسلامية</h2>
-
-<p class="amiri mb-4 text-lg">
-"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا"
-</p>
-
-<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf"
-class="w-full h-64 object-cover rounded mb-4">
-
-<h3 class="text-xl mb-2">أحمد & فاطمة</h3>
-
-<p>الجمعة 10 مايو 2026 - 7:00 مساءً</p>
-
-<a href="https://maps.google.com/?q=Dar Al Fouad Hall"
-class="text-blue-600 underline mt-2 block" target="_blank">
-قاعة دار الفؤاد
-</a>
+<!-- NAV -->
+<div class="nav text-center p-4 sticky top-0 bg-black/70 backdrop-blur">
+<button onclick="showSection(0)">إسلامي عربي</button>
+<button onclick="showSection(1)">Islamic EN</button>
+<button onclick="showSection(2)">Modern</button>
+<button onclick="showSection(3)">مسيحي</button>
 </div>
 
-<!-- ================= 2 ISLAMIC ENGLISH ================= -->
-<div class="section bg-black text-white p-6 rounded-xl shadow text-center">
-<h2 class="text-3xl mb-4">Islamic Wedding Invitation</h2>
+<!-- ================= 1 ISLAMIC AR ================= -->
+<div class="section active" id="s0">
+<div class="parallax mb-6" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');"></div>
 
-<img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed"
-class="w-full h-64 object-cover rounded mb-4">
+<div class="glass text-center">
+<p class="amiri text-green-400 mb-3">"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم..."</p>
+<h2 class="text-3xl text-green-300 mb-2">أحمد & فاطمة</h2>
+<p class="mb-2">الجمعة 10 مايو 2026 - 7:00 مساءً</p>
 
-<h3 class="text-xl mb-2">Omar & Aisha</h3>
+<div id="c0" class="flex justify-center gap-4 text-yellow-400 mb-4"></div>
 
-<p>Sunday, June 15, 2026 - 6:00 PM</p>
+<a href="https://maps.google.com/?q=Dar Al Fouad Hall" target="_blank" class="underline">📍 قاعة دار الفؤاد</a>
 
-<a href="https://maps.google.com/?q=Hilton Cairo Heliopolis"
-class="text-yellow-400 underline mt-2 block" target="_blank">
-Hilton Cairo Heliopolis
-</a>
+<!-- FORM -->
+<div class="mt-6">
+<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded-full mb-4">💌 اكتب كلمة</button>
+
+<div class="hidden formBox bg-white text-black p-4 rounded-xl">
+<input class="w-full mb-2 p-2 border rounded nameInput" placeholder="اسمك">
+<textarea class="w-full mb-2 p-2 border rounded msgInput" placeholder="رسالتك"></textarea>
+<button onclick="submitMsg(this)" class="bg-black text-white w-full p-2 rounded">إرسال</button>
+<p class="success hidden text-green-600 mt-2">تم ❤️</p>
+</div>
 </div>
 
-<!-- ================= 3 NORMAL ================= -->
-<div class="section bg-pink-50 p-6 rounded-xl shadow text-center">
-<h2 class="text-3xl mb-4 text-pink-600">Wedding Invitation</h2>
+</div>
+</div>
 
-<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc"
-class="w-full h-64 object-cover rounded mb-4">
+<!-- ================= 2 ISLAMIC EN ================= -->
+<div class="section" id="s1">
+<div class="parallax mb-6" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');"></div>
 
-<h3 class="text-xl mb-2">Karim & Sara</h3>
+<div class="glass text-center">
+<h2 class="text-3xl text-pink-400 mb-2">Omar & Aisha</h2>
+<p>June 15, 2026 - 6:00 PM</p>
 
-<p>Saturday 20 July 2026 - 8:00 PM</p>
+<div id="c1" class="flex justify-center gap-4 text-yellow-400 mb-4"></div>
 
-<a href="https://maps.google.com/?q=Fairmont Nile City"
-class="text-blue-600 underline mt-2 block" target="_blank">
-Fairmont Nile City
-</a>
+<a href="https://maps.google.com/?q=Hilton Cairo Heliopolis" target="_blank" class="underline">📍 Hilton</a>
+
+<div class="mt-6">
+<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded-full mb-4">Leave a Message</button>
+
+<div class="hidden formBox bg-white text-black p-4 rounded-xl">
+<input class="w-full mb-2 p-2 border rounded nameInput" placeholder="Your Name">
+<textarea class="w-full mb-2 p-2 border rounded msgInput" placeholder="Your Message"></textarea>
+<button onclick="submitMsg(this)" class="bg-black text-white w-full p-2 rounded">Send</button>
+<p class="success hidden text-green-600 mt-2">Sent ❤️</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- ================= 3 MODERN ================= -->
+<div class="section" id="s2">
+<div class="parallax mb-6" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc');"></div>
+
+<div class="glass text-center">
+<h2 class="text-3xl text-blue-400 mb-2">Karim & Sara</h2>
+<p>20 July 2026 - 8 PM</p>
+
+<div id="c2" class="flex justify-center gap-4 text-yellow-400 mb-4"></div>
+
+<a href="https://maps.google.com/?q=Fairmont Nile City" target="_blank" class="underline">📍 Fairmont</a>
+
+<div class="mt-6">
+<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded-full mb-4">Send Wishes</button>
+
+<div class="hidden formBox bg-white text-black p-4 rounded-xl">
+<input class="w-full mb-2 p-2 border rounded nameInput" placeholder="Name">
+<textarea class="w-full mb-2 p-2 border rounded msgInput" placeholder="Message"></textarea>
+<button onclick="submitMsg(this)" class="bg-black text-white w-full p-2 rounded">Send</button>
+<p class="success hidden text-green-600 mt-2">Done ❤️</p>
+</div>
+</div>
+
+</div>
 </div>
 
 <!-- ================= 4 CHRISTIAN ================= -->
-<div class="section bg-white p-6 rounded-xl shadow text-center border">
-<h2 class="ruqaa text-3xl text-yellow-700 mb-4">دعوة زفاف مسيحية</h2>
+<div class="section" id="s3">
+<div class="parallax mb-6" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
 
-<p class="amiri mb-4">
-«الذي جمعه الله لا يفرقه إنسان»
-</p>
+<div class="glass text-center">
+<p class="amiri text-yellow-400 mb-3">«الذي جمعه الله لا يفرقه إنسان»</p>
+<h2 class="text-3xl text-yellow-300 mb-2">مينا & مريم</h2>
 
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552"
-class="w-full h-64 object-cover rounded mb-4">
+<p>الأحد 5 أغسطس 2026</p>
+<p class="text-green-400">الإكليل: 4:00 مساءً</p>
 
-<h3 class="text-xl mb-2">مينا & مريم</h3>
+<div id="c3" class="flex justify-center gap-4 text-yellow-400 mb-4"></div>
 
-<p class="mb-2">الأحد 5 أغسطس 2026</p>
+<a href="https://maps.google.com/?q=St. Mark Coptic Church Cairo" target="_blank" class="underline">⛪ الكنيسة</a><br>
+<a href="https://maps.google.com/?q=JW Marriott Cairo" target="_blank" class="underline">🎉 القاعة</a>
 
-<p class="text-green-700 font-bold">صلاة الإكليل: 4:00 مساءً</p>
+<div class="mt-6">
+<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded-full mb-4">اكتب كلمة</button>
 
-<a href="https://maps.google.com/?q=St. Mark Coptic Church Cairo"
-class="text-blue-600 underline mt-2 block" target="_blank">
-كنيسة مار مرقس
-</a>
-
-<p class="mt-2">الحفل: 8:00 مساءً</p>
-
-<a href="https://maps.google.com/?q=JW Marriott Cairo"
-class="text-blue-600 underline mt-2 block" target="_blank">
-قاعة JW Marriott
-</a>
+<div class="hidden formBox bg-white text-black p-4 rounded-xl">
+<input class="w-full mb-2 p-2 border rounded nameInput" placeholder="اسمك">
+<textarea class="w-full mb-2 p-2 border rounded msgInput" placeholder="رسالتك"></textarea>
+<button onclick="submitMsg(this)" class="bg-black text-white w-full p-2 rounded">إرسال</button>
+<p class="success hidden text-green-600 mt-2">تم ❤️</p>
 </div>
+</div>
+
+</div>
+</div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3">
+</audio>
+
+<button onclick="toggleMusic()" class="fixed bottom-4 left-4 bg-white text-black px-4 py-2 rounded">🎵</button>
+
+<script>
+// navigation
+function showSection(i){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById('s'+i).classList.add('active');
+}
+
+// countdown
+function runCountdown(id,date){
+setInterval(()=>{
+let diff=new Date(date)-new Date();
+let d=Math.floor(diff/(1000*60*60*24));
+let h=Math.floor((diff/(1000*60*60))%24);
+let m=Math.floor((diff/(1000*60))%60);
+let s=Math.floor((diff/1000)%60);
+document.getElementById(id).innerHTML=`${d}d ${h}h ${m}m ${s}s`;
+},1000);
+}
+
+runCountdown("c0","May 10, 2026 19:00:00");
+runCountdown("c1","June 15, 2026 18:00:00");
+runCountdown("c2","July 20, 2026 20:00:00");
+runCountdown("c3","August 5, 2026 16:00:00");
+
+// form
+function toggleForm(btn){
+btn.nextElementSibling.classList.toggle("hidden");
+}
+
+function submitMsg(btn){
+let box=btn.parentElement;
+let name=box.querySelector(".nameInput").value;
+let msg=box.querySelector(".msgInput").value;
+
+if(!name||!msg){alert("اكتب البيانات");return;}
+
+let data=JSON.parse(localStorage.getItem("msgs")||"[]");
+data.push({name,msg});
+localStorage.setItem("msgs",JSON.stringify(data));
+
+box.querySelector(".success").classList.remove("hidden");
+
+box.querySelector(".nameInput").value="";
+box.querySelector(".msgInput").value="";
+
+box.style.transform="scale(.95)";
+setTimeout(()=>box.style.transform="scale(1)",200);
+}
+
+// music
+function toggleMusic(){
+let m=document.getElementById("music");
+m.paused?m.play():m.pause();
+}
+</script>
 
 </body>
 </html>
