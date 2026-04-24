@@ -3,25 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>نماذج دعوات زفاف احترافية</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Tajawal&family=Aref+Ruqaa&display=swap" rel="stylesheet">
 
 <style>
-body{font-family:'Tajawal',sans-serif;background:#0f0f0f;color:#fff;overflow-x:hidden;}
-.section{min-height:100vh;display:none;padding:24px;}
-.active{display:block;animation:fade .8s ease;}
-@keyframes fade{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+body{font-family:'Tajawal',sans-serif;background:#0f0f0f;color:#fff;}
+.section{display:none;min-height:100vh;padding:20px;}
+.active{display:block;animation:fade .7s;}
+@keyframes fade{from{opacity:0}to{opacity:1}}
 
-.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border-radius:20px;padding:20px;}
-.parallax{height:260px;border-radius:20px;background-size:cover;background-position:center;}
-.nav button{background:#1f1f1f;padding:10px 14px;border-radius:12px;margin:6px;}
-.nav button:hover{background:#333;}
+.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:20px;border-radius:20px;}
+.parallax{height:250px;background-size:cover;background-position:center;border-radius:20px;}
 
-.amiri{font-family:'Amiri',serif;}
-.ruqaa{font-family:'Aref Ruqaa',serif;}
-.btn{transition:.25s}
+.counter div{background:rgba(0,0,0,.5);padding:8px;border-radius:10px;width:60px;}
+
+.btn{transition:.3s}
 .btn:hover{transform:scale(1.05)}
 </style>
 </head>
@@ -29,117 +28,133 @@ body{font-family:'Tajawal',sans-serif;background:#0f0f0f;color:#fff;overflow-x:h
 <body>
 
 <!-- NAV -->
-<div class="nav text-center p-4 sticky top-0 bg-black/70 backdrop-blur">
-<button onclick="showSection(0)">إسلامي عربي</button>
-<button onclick="showSection(1)">Islamic EN</button>
-<button onclick="showSection(2)">Modern</button>
-<button onclick="showSection(3)">مسيحي</button>
+<div class="text-center p-3">
+<button onclick="show(0)">إسلامي</button>
+<button onclick="show(1)">EN</button>
+<button onclick="show(2)">Modern</button>
+<button onclick="show(3)">مسيحي</button>
 </div>
 
-<!-- ================= 1 ISLAMIC AR ================= -->
-<div class="section active" id="s0">
-<div class="parallax mb-6" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');"></div>
+<!-- ================= 1 ================= -->
+<div id="s0" class="section active">
+<div class="parallax mb-5" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');"></div>
 
 <div class="glass text-center">
-<p class="amiri text-green-400 mb-3">"وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم..."</p>
-<h2 class="text-3xl text-green-300 mb-2">أحمد & فاطمة</h2>
-<p class="mb-2">الجمعة 10 مايو 2026 - 7:00 مساءً</p>
+<h2 class="text-3xl text-green-400 mb-3">أحمد & فاطمة</h2>
+<p>10 مايو 2026 - 7 مساءً</p>
 
-<div id="c0" class="flex justify-center gap-4 text-yellow-400 mb-4"></div>
+<div class="counter flex justify-center gap-2 mt-4">
+<div><span id="d0">0</span><br>يوم</div>
+<div><span id="h0">0</span><br>ساعة</div>
+<div><span id="m0">0</span><br>دقيقة</div>
+<div><span id="s0c">0</span><br>ثانية</div>
+</div>
 
-<a href="https://maps.google.com/?q=Dar Al Fouad Hall" target="_blank" class="underline">📍 قاعة دار الفؤاد</a>
+<a href="https://maps.google.com/?q=Dar Al Fouad Hall" target="_blank">📍 الموقع</a>
 
-<!-- FORM -->
-<div class="mt-6">
-<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded-full mb-4">💌 اكتب كلمة</button>
+<div class="mt-5">
+<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded">💌 رسالة</button>
 
-<div class="hidden formBox bg-white text-black p-4 rounded-xl">
-<input class="w-full mb-2 p-2 border rounded nameInput" placeholder="اسمك">
-<textarea class="w-full mb-2 p-2 border rounded msgInput" placeholder="رسالتك"></textarea>
-<button onclick="submitMsg(this)" class="bg-black text-white w-full p-2 rounded">إرسال</button>
-<p class="success hidden text-green-600 mt-2">تم ❤️</p>
+<div class="hidden formBox mt-3 bg-white text-black p-3 rounded">
+<input class="w-full mb-2 p-2 border nameInput" placeholder="اسمك">
+<textarea class="w-full mb-2 p-2 border msgInput" placeholder="رسالتك"></textarea>
+<button onclick="send(this)" class="bg-black text-white w-full p-2">إرسال</button>
+<p class="success hidden text-green-600">تم</p>
 </div>
 </div>
 
 </div>
 </div>
 
-<!-- ================= 2 ISLAMIC EN ================= -->
-<div class="section" id="s1">
-<div class="parallax mb-6" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');"></div>
+<!-- ================= 2 ================= -->
+<div id="s1" class="section">
+<div class="parallax mb-5" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');"></div>
 
 <div class="glass text-center">
-<h2 class="text-3xl text-pink-400 mb-2">Omar & Aisha</h2>
-<p>June 15, 2026 - 6:00 PM</p>
+<h2 class="text-3xl text-pink-400">Omar & Aisha</h2>
+<p>June 15 2026 - 6 PM</p>
 
-<div id="c1" class="flex justify-center gap-4 text-yellow-400 mb-4"></div>
+<div class="counter flex justify-center gap-2 mt-4">
+<div><span id="d1">0</span><br>d</div>
+<div><span id="h1">0</span><br>h</div>
+<div><span id="m1">0</span><br>m</div>
+<div><span id="s1c">0</span><br>s</div>
+</div>
 
-<a href="https://maps.google.com/?q=Hilton Cairo Heliopolis" target="_blank" class="underline">📍 Hilton</a>
+<a href="https://maps.google.com/?q=Hilton Cairo" target="_blank">📍 Location</a>
 
-<div class="mt-6">
-<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded-full mb-4">Leave a Message</button>
+<div class="mt-5">
+<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded">Message</button>
 
-<div class="hidden formBox bg-white text-black p-4 rounded-xl">
-<input class="w-full mb-2 p-2 border rounded nameInput" placeholder="Your Name">
-<textarea class="w-full mb-2 p-2 border rounded msgInput" placeholder="Your Message"></textarea>
-<button onclick="submitMsg(this)" class="bg-black text-white w-full p-2 rounded">Send</button>
-<p class="success hidden text-green-600 mt-2">Sent ❤️</p>
+<div class="hidden formBox mt-3 bg-white text-black p-3 rounded">
+<input class="w-full mb-2 p-2 border nameInput" placeholder="Name">
+<textarea class="w-full mb-2 p-2 border msgInput" placeholder="Message"></textarea>
+<button onclick="send(this)" class="bg-black text-white w-full p-2">Send</button>
+<p class="success hidden text-green-600">Done</p>
 </div>
 </div>
 
 </div>
 </div>
 
-<!-- ================= 3 MODERN ================= -->
-<div class="section" id="s2">
-<div class="parallax mb-6" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc');"></div>
+<!-- ================= 3 ================= -->
+<div id="s2" class="section">
+<div class="parallax mb-5" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc');"></div>
 
 <div class="glass text-center">
-<h2 class="text-3xl text-blue-400 mb-2">Karim & Sara</h2>
+<h2 class="text-3xl text-blue-400">Karim & Sara</h2>
 <p>20 July 2026 - 8 PM</p>
 
-<div id="c2" class="flex justify-center gap-4 text-yellow-400 mb-4"></div>
+<div class="counter flex justify-center gap-2 mt-4">
+<div><span id="d2">0</span><br>d</div>
+<div><span id="h2">0</span><br>h</div>
+<div><span id="m2">0</span><br>m</div>
+<div><span id="s2c">0</span><br>s</div>
+</div>
 
-<a href="https://maps.google.com/?q=Fairmont Nile City" target="_blank" class="underline">📍 Fairmont</a>
+<a href="https://maps.google.com/?q=Fairmont Nile City" target="_blank">📍 Venue</a>
 
-<div class="mt-6">
-<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded-full mb-4">Send Wishes</button>
+<div class="mt-5">
+<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded">Send</button>
 
-<div class="hidden formBox bg-white text-black p-4 rounded-xl">
-<input class="w-full mb-2 p-2 border rounded nameInput" placeholder="Name">
-<textarea class="w-full mb-2 p-2 border rounded msgInput" placeholder="Message"></textarea>
-<button onclick="submitMsg(this)" class="bg-black text-white w-full p-2 rounded">Send</button>
-<p class="success hidden text-green-600 mt-2">Done ❤️</p>
+<div class="hidden formBox mt-3 bg-white text-black p-3 rounded">
+<input class="w-full mb-2 p-2 border nameInput" placeholder="Name">
+<textarea class="w-full mb-2 p-2 border msgInput" placeholder="Message"></textarea>
+<button onclick="send(this)" class="bg-black text-white w-full p-2">Send</button>
+<p class="success hidden text-green-600">Done</p>
 </div>
 </div>
 
 </div>
 </div>
 
-<!-- ================= 4 CHRISTIAN ================= -->
-<div class="section" id="s3">
-<div class="parallax mb-6" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
+<!-- ================= 4 ================= -->
+<div id="s3" class="section">
+<div class="parallax mb-5" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
 
 <div class="glass text-center">
-<p class="amiri text-yellow-400 mb-3">«الذي جمعه الله لا يفرقه إنسان»</p>
-<h2 class="text-3xl text-yellow-300 mb-2">مينا & مريم</h2>
+<h2 class="text-3xl text-yellow-400">مينا & مريم</h2>
+<p>5 أغسطس 2026</p>
+<p class="text-green-400">الإكليل 4:00</p>
 
-<p>الأحد 5 أغسطس 2026</p>
-<p class="text-green-400">الإكليل: 4:00 مساءً</p>
+<div class="counter flex justify-center gap-2 mt-4">
+<div><span id="d3">0</span><br>يوم</div>
+<div><span id="h3">0</span><br>ساعة</div>
+<div><span id="m3">0</span><br>دقيقة</div>
+<div><span id="s3c">0</span><br>ثانية</div>
+</div>
 
-<div id="c3" class="flex justify-center gap-4 text-yellow-400 mb-4"></div>
+<a href="https://maps.google.com/?q=St Mark Church Cairo" target="_blank">⛪ الكنيسة</a><br>
+<a href="https://maps.google.com/?q=JW Marriott Cairo" target="_blank">🎉 القاعة</a>
 
-<a href="https://maps.google.com/?q=St. Mark Coptic Church Cairo" target="_blank" class="underline">⛪ الكنيسة</a><br>
-<a href="https://maps.google.com/?q=JW Marriott Cairo" target="_blank" class="underline">🎉 القاعة</a>
+<div class="mt-5">
+<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded">رسالة</button>
 
-<div class="mt-6">
-<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded-full mb-4">اكتب كلمة</button>
-
-<div class="hidden formBox bg-white text-black p-4 rounded-xl">
-<input class="w-full mb-2 p-2 border rounded nameInput" placeholder="اسمك">
-<textarea class="w-full mb-2 p-2 border rounded msgInput" placeholder="رسالتك"></textarea>
-<button onclick="submitMsg(this)" class="bg-black text-white w-full p-2 rounded">إرسال</button>
-<p class="success hidden text-green-600 mt-2">تم ❤️</p>
+<div class="hidden formBox mt-3 bg-white text-black p-3 rounded">
+<input class="w-full mb-2 p-2 border nameInput" placeholder="اسمك">
+<textarea class="w-full mb-2 p-2 border msgInput" placeholder="رسالتك"></textarea>
+<button onclick="send(this)" class="bg-black text-white w-full p-2">إرسال</button>
+<p class="success hidden text-green-600">تم</p>
 </div>
 </div>
 
@@ -151,38 +166,39 @@ body{font-family:'Tajawal',sans-serif;background:#0f0f0f;color:#fff;overflow-x:h
 <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3">
 </audio>
 
-<button onclick="toggleMusic()" class="fixed bottom-4 left-4 bg-white text-black px-4 py-2 rounded">🎵</button>
+<button onclick="toggleMusic()" style="position:fixed;bottom:10px;left:10px;">🎵</button>
 
 <script>
-// navigation
-function showSection(i){
+function show(i){
 document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
 document.getElementById('s'+i).classList.add('active');
 }
 
-// countdown
-function runCountdown(id,date){
+function start(prefix,date){
 setInterval(()=>{
 let diff=new Date(date)-new Date();
 let d=Math.floor(diff/(1000*60*60*24));
 let h=Math.floor((diff/(1000*60*60))%24);
 let m=Math.floor((diff/(1000*60))%60);
 let s=Math.floor((diff/1000)%60);
-document.getElementById(id).innerHTML=`${d}d ${h}h ${m}m ${s}s`;
+
+document.getElementById("d"+prefix).innerText=d;
+document.getElementById("h"+prefix).innerText=h;
+document.getElementById("m"+prefix).innerText=m;
+document.getElementById("s"+prefix+"c").innerText=s;
 },1000);
 }
 
-runCountdown("c0","May 10, 2026 19:00:00");
-runCountdown("c1","June 15, 2026 18:00:00");
-runCountdown("c2","July 20, 2026 20:00:00");
-runCountdown("c3","August 5, 2026 16:00:00");
+start(0,"May 10 2026 19:00:00");
+start(1,"June 15 2026 18:00:00");
+start(2,"July 20 2026 20:00:00");
+start(3,"August 5 2026 16:00:00");
 
-// form
 function toggleForm(btn){
 btn.nextElementSibling.classList.toggle("hidden");
 }
 
-function submitMsg(btn){
+function send(btn){
 let box=btn.parentElement;
 let name=box.querySelector(".nameInput").value;
 let msg=box.querySelector(".msgInput").value;
@@ -194,15 +210,8 @@ data.push({name,msg});
 localStorage.setItem("msgs",JSON.stringify(data));
 
 box.querySelector(".success").classList.remove("hidden");
-
-box.querySelector(".nameInput").value="";
-box.querySelector(".msgInput").value="";
-
-box.style.transform="scale(.95)";
-setTimeout(()=>box.style.transform="scale(1)",200);
 }
 
-// music
 function toggleMusic(){
 let m=document.getElementById("music");
 m.paused?m.play():m.pause();
