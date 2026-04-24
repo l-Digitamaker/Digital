@@ -1,176 +1,276 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دعوات زفاف احترافية</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>دعوات زفاف إلكترونية</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Tajawal&family=Aref+Ruqaa&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri&family=Tajawal:wght@300;500;700&family=Aref+Ruqaa&display=swap" rel="stylesheet">
 
 <style>
-body{font-family:'Tajawal',sans-serif;margin:0}
-.section{display:none;min-height:100vh;padding:20px}
+:root{
+  --cream:#FAFAFA;
+  --olive:#556B2F;
+  --gold:#B8860B;
+  --rose:#E8CFC1;
+  --mint:#EAF3EE;
+  --sky:#EEF6FF;
+}
+
+body{font-family:'Tajawal',sans-serif;background:var(--cream);color:#3b3b3b}
+.section{display:none}
 .active{display:block}
+.card{background:#fff;border-radius:22px;box-shadow:0 12px 30px rgba(0,0,0,.06);overflow:hidden}
+.btn{background:var(--olive);color:#fff;border-radius:999px;padding:10px 18px;transition:.25s}
+.btn:hover{transform:scale(1.05)}
+.badge{background:#f1f1f1;border-radius:999px;padding:4px 10px;font-size:12px}
 
-/* ===== LUXURY ===== */
-.luxury{background:#FAFAFA;color:#333}
-.luxury .box{background:#fff;padding:20px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
-.luxury .title{color:#B8860B}
+.parallax{height:220px;background-size:cover;background-position:center;border-radius:18px}
+.counter{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.counter div{background:#F3F3F3;border-radius:12px;padding:8px;width:62px;text-align:center}
+.counter span{color:var(--gold);font-weight:700}
 
-/* ===== ROMANTIC ===== */
-.romantic{background:linear-gradient(#fff,#ffecec)}
-.romantic .box{background:#fff;border-radius:20px;padding:20px}
-.romantic .title{color:#d46a6a}
+.form input,.form textarea{width:100%;border:1px solid #eee;border-radius:10px;padding:8px;margin-top:6px}
+.form button{width:100%;margin-top:8px}
 
-/* ===== MINIMAL ===== */
-.minimal{background:#fff;color:#000}
-.minimal .box{border:1px solid #eee;padding:20px;border-radius:15px}
-.minimal .title{font-weight:bold}
+/* decorative */
+.decor{position:absolute;pointer-events:none;opacity:.25}
 
-/* ===== ROYAL ===== */
-.royal{background:#111;color:#fff}
-.royal .box{background:rgba(255,255,255,.05);padding:20px;border-radius:20px}
-.royal .title{color:#FFD700}
+/* themes (light only) */
+.luxury{background:linear-gradient(120deg,#fff,#fdf7ef)}
+.romantic{background:linear-gradient(#fff,#fff5f5)}
+.minimal{background:#fff}
+.royal{background:linear-gradient(#fff,#f7f3ff)}
 
-/* ===== SHARED ===== */
-.parallax{height:220px;background-size:cover;border-radius:20px;margin-bottom:20px}
-.counter{display:flex;justify-content:center;gap:10px;margin-top:10px}
-.counter div{background:#eee;padding:10px;border-radius:10px}
-.royal .counter div{background:#222}
+.box{background:#fff;border-radius:20px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.05);max-width:440px;margin:auto;position:relative}
+.title-gold{color:var(--gold);font-family:'Aref Ruqaa',serif}
+.title-olive{color:var(--olive)}
+.small{font-size:14px;color:#777}
+.nav{position:sticky;top:0;background:#fff;z-index:10;border-bottom:1px solid #f1f1f1}
+.nav button{margin:6px;padding:8px 12px;border-radius:12px;background:#f3f3f3}
 
-.btn{margin-top:15px;padding:10px;border-radius:25px;cursor:pointer}
-.luxury .btn{background:#556B2F;color:#fff}
-.romantic .btn{background:#d46a6a;color:#fff}
-.minimal .btn{background:#000;color:#fff}
-.royal .btn{background:#FFD700;color:#000}
-
+.wa{position:fixed;bottom:14px;left:14px;background:#25D366;color:#fff;border-radius:999px;padding:12px 16px}
 </style>
 </head>
 
 <body>
 
-<div class="text-center p-3 bg-white">
-<button onclick="show(0)">Luxury</button>
-<button onclick="show(1)">Romantic</button>
-<button onclick="show(2)">Minimal</button>
-<button onclick="show(3)">Royal</button>
+<!-- NAV -->
+<div class="nav text-center p-2">
+<button onclick="showHome()">الرئيسية</button>
+<button onclick="openSample('luxury')">Luxury</button>
+<button onclick="openSample('romantic')">Romantic</button>
+<button onclick="openSample('minimal')">Minimal</button>
+<button onclick="openSample('royal')">Royal</button>
 </div>
 
-<!-- ===== 1 LUXURY ===== -->
-<div id="s0" class="section luxury active">
-<div class="parallax" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');"></div>
+<!-- ================= HOME ================= -->
+<div id="home" class="section active">
 
-<div class="box text-center">
-<h2 class="title text-3xl">أحمد & فاطمة</h2>
-<p>10 مايو 2026</p>
+<section class="text-center p-10" style="background:linear-gradient(120deg,#fdf6f0,#ffffff)">
+<h1 class="text-3xl font-bold mb-4">دعوة فرحك… بشكل مختلف 💍</h1>
+<p class="mb-6">موقع تفاعلي فاخر بدل كارت الورق — يوصل لكل حد بسهولة</p>
+<a href="#themes" class="btn">شوف النماذج</a>
+</section>
 
-<div class="counter">
-<div><span id="d0"></span><br>يوم</div>
-<div><span id="h0"></span><br>ساعة</div>
-<div><span id="m0"></span><br>دقيقة</div>
-<div><span id="s0c"></span><br>ثانية</div>
-</div>
+<section id="themes" class="p-6">
+<h2 class="text-2xl font-bold text-center mb-6">اختار شكل دعوتك</h2>
 
-<button class="btn" onclick="toggleForm(this)">رسالة</button>
-<div class="hidden formBox">
-<input placeholder="اسمك" class="w-full border p-2 mt-2">
-<textarea placeholder="رسالتك" class="w-full border p-2 mt-2"></textarea>
-</div>
-</div>
-</div>
+<div class="grid gap-6">
 
-<!-- ===== 2 ROMANTIC ===== -->
-<div id="s1" class="section romantic">
-<div class="parallax" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');"></div>
-
-<div class="box text-center">
-<h2 class="title text-3xl">Omar & Aisha</h2>
-
-<div class="counter">
-<div><span id="d1"></span><br>d</div>
-<div><span id="h1"></span><br>h</div>
-<div><span id="m1"></span><br>m</div>
-<div><span id="s1c"></span><br>s</div>
-</div>
-
-<button class="btn" onclick="toggleForm(this)">Message</button>
-<div class="hidden formBox">
-<input placeholder="Name" class="w-full border p-2 mt-2">
-<textarea placeholder="Message" class="w-full border p-2 mt-2"></textarea>
+<!-- CARD 1 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600&auto=format&fit=crop" class="h-48 w-full object-cover">
+<div class="p-4">
+<h3 class="font-bold">Luxury Theme <span class="badge">فاخر</span></h3>
+<p class="small mb-3">ألوان ذهبية + طابع راقي</p>
+<div class="flex gap-2">
+<button onclick="openSample('luxury')" class="btn">عرض النموذج</button>
+<button onclick="order('Luxury')" class="btn">اطلب الآن</button>
 </div>
 </div>
 </div>
 
-<!-- ===== 3 MINIMAL ===== -->
-<div id="s2" class="section minimal">
-<div class="parallax" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc');"></div>
-
-<div class="box text-center">
-<h2 class="title text-2xl">Karim & Sara</h2>
-
-<div class="counter">
-<div><span id="d2"></span></div>
-<div><span id="h2"></span></div>
-<div><span id="m2"></span></div>
-<div><span id="s2c"></span></div>
-</div>
-
-<button class="btn" onclick="toggleForm(this)">Send</button>
-<div class="hidden formBox">
-<input placeholder="Name" class="w-full border p-2 mt-2">
-<textarea placeholder="Message" class="w-full border p-2 mt-2"></textarea>
+<!-- CARD 2 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop" class="h-48 w-full object-cover">
+<div class="p-4">
+<h3 class="font-bold">Romantic Theme <span class="badge">رومانسي</span></h3>
+<p class="small mb-3">ألوان وردية ناعمة</p>
+<div class="flex gap-2">
+<button onclick="openSample('romantic')" class="btn">عرض النموذج</button>
+<button onclick="order('Romantic')" class="btn">اطلب الآن</button>
 </div>
 </div>
 </div>
 
-<!-- ===== 4 ROYAL ===== -->
-<div id="s3" class="section royal">
-<div class="parallax" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
-
-<div class="box text-center">
-<h2 class="title text-3xl">مينا & مريم</h2>
-<p>الإكليل 4:00 مساءً</p>
-
-<div class="counter">
-<div><span id="d3"></span><br>يوم</div>
-<div><span id="h3"></span><br>ساعة</div>
-<div><span id="m3"></span><br>دقيقة</div>
-<div><span id="s3c"></span><br>ثانية</div>
+<!-- CARD 3 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop" class="h-48 w-full object-cover">
+<div class="p-4">
+<h3 class="font-bold">Minimal Theme <span class="badge">بسيط</span></h3>
+<p class="small mb-3">نظيف وسريع</p>
+<div class="flex gap-2">
+<button onclick="openSample('minimal')" class="btn">عرض النموذج</button>
+<button onclick="order('Minimal')" class="btn">اطلب الآن</button>
+</div>
+</div>
 </div>
 
-<button class="btn" onclick="toggleForm(this)">رسالة</button>
-<div class="hidden formBox">
-<input placeholder="اسمك" class="w-full border p-2 mt-2">
-<textarea placeholder="رسالتك" class="w-full border p-2 mt-2"></textarea>
+<!-- CARD 4 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop" class="h-48 w-full object-cover">
+<div class="p-4">
+<h3 class="font-bold">Royal Light Theme <span class="badge">ملكي فاتح</span></h3>
+<p class="small mb-3">فخم بألوان فاتحة</p>
+<div class="flex gap-2">
+<button onclick="openSample('royal')" class="btn">عرض النموذج</button>
+<button onclick="order('Royal')" class="btn">اطلب الآن</button>
 </div>
 </div>
 </div>
+
+</div>
+</section>
+
+<section class="p-6 text-center">
+<div class="card p-6">
+<p class="line-through text-gray-400">499 جنيه</p>
+<p class="text-3xl font-bold" style="color:#2e7d32">350 جنيه</p>
+<p class="small">خصم 30%</p>
+<button onclick="order('General')" class="btn mt-3">احجز الآن</button>
+</div>
+</section>
+
+</div>
+
+<!-- ================= SAMPLE ================= -->
+<div id="sample" class="section p-6"></div>
+
+<!-- BACK -->
+<div id="backBtn" class="hidden text-center p-3">
+<button onclick="showHome()" class="btn">رجوع</button>
+</div>
+
+<!-- FLOAT WA -->
+<a href="#" onclick="order('General')" class="wa">واتساب</a>
 
 <script>
-function show(i){
-document.querySelectorAll('.section').forEach(s=>s.style.display='none');
-document.getElementById('s'+i).style.display='block';
+// ---------- NAV ----------
+function showHome(){
+  document.getElementById("sample").classList.remove("active");
+  document.getElementById("home").classList.add("active");
+  document.getElementById("backBtn").classList.add("hidden");
+}
+function openSample(theme){
+  document.getElementById("home").classList.remove("active");
+  document.getElementById("sample").classList.add("active");
+  document.getElementById("backBtn").classList.remove("hidden");
+  renderSample(theme);
 }
 
-function countdown(prefix,date){
-setInterval(()=>{
-let diff=new Date(date)-new Date();
+// ---------- DATA ----------
+const DATA = {
+luxury:{
+  class:'luxury',
+  titleClass:'title-gold',
+  verse:'﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا ﴾',
+  names:'أحمد & فاطمة',
+  dateLabel:'الجمعة 10 مايو 2026 — 7:00 مساءً',
+  mapLabel:'قاعة دار الفؤاد – مدينة نصر',
+  mapUrl:'https://maps.google.com/?q=Dar%20Al%20Fouad%20Hall',
+  dateISO:'May 10, 2026 19:00:00',
+  decor:`<svg class="decor" style="top:-20px;left:-10px;width:120px" viewBox="0 0 200 200"><path fill="#B8860B" d="M40,-60C55,-55,72,-47,78,-34C84,-21,78,-3,70,12C62,27,52,39,40,49C28,60,14,69,-2,72C-18,75,-36,72,-50,62C-64,52,-74,35,-77,18C-80,1,-75,-17,-66,-30C-57,-43,-44,-51,-31,-57C-18,-63,-9,-66,2,-69C13,-72,26,-75,40,-60Z"/></svg>`
+},
+romantic:{
+  class:'romantic',
+  titleClass:'title-olive',
+  verse:'"And among His signs is that He created for you mates from among yourselves..."',
+  names:'Omar & Aisha',
+  dateLabel:'Sunday, June 15, 2026 — 6:00 PM',
+  mapLabel:'Hilton Cairo Heliopolis',
+  mapUrl:'https://maps.google.com/?q=Hilton%20Cairo%20Heliopolis',
+  dateISO:'June 15, 2026 18:00:00',
+  decor:`<svg class="decor" style="bottom:-10px;right:-10px;width:110px" viewBox="0 0 200 200"><path fill="#E8CFC1" d="M48,-64C62,-55,73,-41,78,-25C83,-9,82,9,74,24C66,39,51,52,35,61C19,70,2,74,-14,72C-30,70,-44,62,-55,50C-66,38,-74,22,-77,5C-80,-12,-78,-30,-69,-43C-60,-56,-44,-64,-28,-70C-12,-76,4,-80,20,-77C36,-74,48,-64,48,-64Z"/></svg>`
+},
+minimal:{
+  class:'minimal',
+  titleClass:'title-olive',
+  verse:'We’re getting married!',
+  names:'Karim & Sara',
+  dateLabel:'Saturday, July 20, 2026 — 8:00 PM',
+  mapLabel:'Fairmont Nile City',
+  mapUrl:'https://maps.google.com/?q=Fairmont%20Nile%20City',
+  dateISO:'July 20, 2026 20:00:00',
+  decor:`<svg class="decor" style="top:10px;right:10px;width:90px" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="#EEF6FF"/></svg>`
+},
+royal:{
+  class:'royal',
+  titleClass:'title-gold',
+  verse:'« إِذًا لَيْسَا بَعْدُ اثْنَيْنِ بَلْ جَسَدٌ وَاحِدٌ »',
+  names:'مينا & مريم',
+  dateLabel:'الأحد 5 أغسطس 2026 — الإكليل 4:00 م',
+  mapLabel:'كنيسة مار مرقس – مصر الجديدة',
+  mapUrl:'https://maps.google.com/?q=St%20Mark%20Church%20Cairo',
+  dateISO:'August 5, 2026 16:00:00',
+  decor:`<svg class="decor" style="bottom:-12px;left:-12px;width:120px" viewBox="0 0 200 200"><rect x="10" y="10" width="180" height="180" rx="30" fill="#EAF3EE"/></svg>`
+}
+};
 
-document.getElementById("d"+prefix).innerText=Math.floor(diff/(1000*60*60*24));
-document.getElementById("h"+prefix).innerText=Math.floor((diff/(1000*60*60))%24);
-document.getElementById("m"+prefix).innerText=Math.floor((diff/(1000*60))%60);
-document.getElementById("s"+prefix+"c").innerText=Math.floor((diff/1000)%60);
-},1000);
+// ---------- RENDER ----------
+function renderSample(key){
+  const d = DATA[key];
+  document.getElementById('sample').innerHTML = `
+  <div class="${d.class} min-h-screen flex items-center justify-center p-4">
+    <div class="box">
+      ${d.decor}
+      <p class="small mb-2">${d.verse}</p>
+      <h2 class="text-3xl mb-2 ${d.titleClass}">${d.names}</h2>
+      <p class="mb-2">${d.dateLabel}</p>
+
+      <div class="counter">
+        <div><span id="d"></span><br>يوم</div>
+        <div><span id="h"></span><br>ساعة</div>
+        <div><span id="m"></span><br>دقيقة</div>
+        <div><span id="s"></span><br>ثانية</div>
+      </div>
+
+      <a href="${d.mapUrl}" target="_blank" class="block mt-3" style="color:var(--olive)">📍 ${d.mapLabel}</a>
+
+      <div class="form mt-4">
+        <input placeholder="اسمك">
+        <textarea rows="3" placeholder="اكتب كلمة للعروسين..."></textarea>
+        <button class="btn" onclick="order('${key}')">اطلب نفس التصميم</button>
+      </div>
+    </div>
+  </div>`;
+  startCountdown(d.dateISO);
 }
 
-countdown(0,"May 10 2026");
-countdown(1,"June 15 2026");
-countdown(2,"July 20 2026");
-countdown(3,"August 5 2026");
+// ---------- COUNTDOWN ----------
+let timer;
+function startCountdown(date){
+  if(timer) clearInterval(timer);
+  function update(){
+    const diff = new Date(date) - new Date();
+    const d = Math.max(0, Math.floor(diff/(1000*60*60*24)));
+    const h = Math.max(0, Math.floor((diff/(1000*60*60))%24));
+    const m = Math.max(0, Math.floor((diff/(1000*60))%60));
+    const s = Math.max(0, Math.floor((diff/1000)%60));
+    document.getElementById("d").innerText=d;
+    document.getElementById("h").innerText=h;
+    document.getElementById("m").innerText=m;
+    document.getElementById("s").innerText=s;
+  }
+  update();
+  timer = setInterval(update,1000);
+}
 
-function toggleForm(btn){
-btn.nextElementSibling.classList.toggle("hidden");
+// ---------- WA ----------
+function order(theme){
+  const msg = encodeURIComponent(`عايز أطلب دعوة زفاف - الثيم: ${theme}`);
+  window.open(`https://wa.me/201211345434?text=${msg}`,'_blank');
 }
 </script>
 
