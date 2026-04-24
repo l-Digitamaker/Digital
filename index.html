@@ -13,33 +13,48 @@
   --cream:#FAFAFA;
   --olive:#556B2F;
   --gold:#B8860B;
+  --rose:#E8CFC1;
+  --mint:#EAF3EE;
+  --sky:#EEF6FF;
 }
 
 body{font-family:'Tajawal',sans-serif;background:var(--cream);color:#3b3b3b}
 .section{display:none}
 .active{display:block}
 .card{background:#fff;border-radius:22px;box-shadow:0 12px 30px rgba(0,0,0,.06);overflow:hidden}
-.btn{background:var(--olive);color:#fff;border-radius:999px;padding:10px 18px}
+.btn{background:var(--olive);color:#fff;border-radius:999px;padding:10px 18px;transition:.25s}
+.btn:hover{transform:scale(1.05)}
 .badge{background:#f1f1f1;border-radius:999px;padding:4px 10px;font-size:12px}
 
+.parallax{height:220px;background-size:cover;background-position:center;border-radius:18px}
 .counter{display:flex;justify-content:center;gap:8px;margin-top:10px}
 .counter div{background:#F3F3F3;border-radius:12px;padding:8px;width:62px;text-align:center}
 .counter span{color:var(--gold);font-weight:700}
 
 .form input,.form textarea{width:100%;border:1px solid #eee;border-radius:10px;padding:8px;margin-top:6px}
+.form button{width:100%;margin-top:8px}
 
-.nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #eee}
-.nav button{margin:6px;padding:8px 12px;border-radius:12px;background:#f3f3f3}
+.decor{position:absolute;pointer-events:none;opacity:.25}
 
-.box{background:#fff;border-radius:20px;padding:20px;max-width:420px;margin:auto}
+.luxury{background:linear-gradient(120deg,#fff,#fdf7ef)}
+.romantic{background:linear-gradient(#fff,#fff5f5)}
+.minimal{background:#fff}
+.royal{background:linear-gradient(#fff,#f7f3ff)}
+
+.box{background:#fff;border-radius:20px;padding:20px;box-shadow:0 10px 25px rgba(0,0,0,.05);max-width:440px;margin:auto;position:relative}
 .title-gold{color:var(--gold);font-family:'Aref Ruqaa',serif}
 .title-olive{color:var(--olive)}
+.small{font-size:14px;color:#777}
+.nav{position:sticky;top:0;background:#fff;z-index:10;border-bottom:1px solid #f1f1f1}
+.nav button{margin:6px;padding:8px 12px;border-radius:12px;background:#f3f3f3}
 
+.wa{position:fixed;bottom:14px;left:14px;background:#25D366;color:#fff;border-radius:999px;padding:12px 16px}
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <div class="nav text-center p-2">
 <button onclick="showHome()">الرئيسية</button>
 <button onclick="openSample('luxury')">Luxury</button>
@@ -48,13 +63,58 @@ body{font-family:'Tajawal',sans-serif;background:var(--cream);color:#3b3b3b}
 <button onclick="openSample('royal')">Royal</button>
 </div>
 
-<!-- HOME -->
-<div id="home" class="section active p-6 text-center">
-<h1 class="text-3xl mb-4">دعوة فرحك بشكل مختلف 💍</h1>
-<p>اختار النموذج وجربه بنفسك</p>
+<!-- ================= HOME ================= -->
+<div id="home" class="section active">
+
+<section class="text-center p-10" style="background:linear-gradient(120deg,#fdf6f0,#ffffff)">
+<h1 class="text-3xl font-bold mb-4">دعوة فرحك… بشكل مختلف 💍</h1>
+<p class="mb-6">موقع تفاعلي فاخر بدل كارت الورق — يوصل لكل حد بسهولة</p>
+<a href="#themes" class="btn">شوف النماذج</a>
+</section>
+
+<section id="themes" class="p-6">
+<h2 class="text-2xl font-bold text-center mb-6">اختار شكل دعوتك</h2>
+
+<div class="grid gap-6">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1600&auto=format&fit=crop" class="h-48 w-full object-cover">
+<div class="p-4">
+<h3 class="font-bold">Luxury Theme</h3>
+<button onclick="openSample('luxury')" class="btn mt-2">عرض النموذج</button>
+</div>
 </div>
 
-<!-- SAMPLE -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop" class="h-48 w-full object-cover">
+<div class="p-4">
+<h3 class="font-bold">Romantic Theme</h3>
+<button onclick="openSample('romantic')" class="btn mt-2">عرض النموذج</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1600&auto=format&fit=crop" class="h-48 w-full object-cover">
+<div class="p-4">
+<h3 class="font-bold">Minimal Theme</h3>
+<button onclick="openSample('minimal')" class="btn mt-2">عرض النموذج</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop" class="h-48 w-full object-cover">
+<div class="p-4">
+<h3 class="font-bold">Royal Theme</h3>
+<button onclick="openSample('royal')" class="btn mt-2">عرض النموذج</button>
+</div>
+</div>
+
+</div>
+</section>
+
+</div>
+
+<!-- ================= SAMPLE ================= -->
 <div id="sample" class="section p-6"></div>
 
 <script>
@@ -111,13 +171,13 @@ let d = DATA[key];
 document.getElementById("sample").innerHTML = `
 <div class="box text-center">
 
-<p>${d.verse}</p>
+<p class="small mb-3">${d.verse}</p>
 
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200" class="rounded-xl my-3">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200" class="rounded-xl mb-3">
 
-<h2 class="text-2xl ${key==='luxury'||key==='royal'?'title-gold':'title-olive'}">${d.names}</h2>
+<h2 class="text-3xl ${key==='luxury'||key==='royal'?'title-gold':'title-olive'}">${d.names}</h2>
 
-<p>بكل حب ندعوكم لمشاركتنا فرحتنا 💍</p>
+<p class="mt-2">بكل حب ندعوكم لمشاركتنا فرحتنا 💍</p>
 
 <h3 class="mt-3">⏳ عداد فرحتنا</h3>
 
