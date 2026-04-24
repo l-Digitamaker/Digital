@@ -3,218 +3,174 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>نماذج دعوات زفاف احترافية</title>
+<title>دعوات زفاف احترافية</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Tajawal&family=Aref+Ruqaa&display=swap" rel="stylesheet">
 
 <style>
-body{font-family:'Tajawal',sans-serif;background:#0f0f0f;color:#fff;}
-.section{display:none;min-height:100vh;padding:20px;}
-.active{display:block;animation:fade .7s;}
-@keyframes fade{from{opacity:0}to{opacity:1}}
+body{font-family:'Tajawal',sans-serif;margin:0}
+.section{display:none;min-height:100vh;padding:20px}
+.active{display:block}
 
-.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:20px;border-radius:20px;}
-.parallax{height:250px;background-size:cover;background-position:center;border-radius:20px;}
+/* ===== LUXURY ===== */
+.luxury{background:#FAFAFA;color:#333}
+.luxury .box{background:#fff;padding:20px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.luxury .title{color:#B8860B}
 
-.counter div{background:rgba(0,0,0,.5);padding:8px;border-radius:10px;width:60px;}
+/* ===== ROMANTIC ===== */
+.romantic{background:linear-gradient(#fff,#ffecec)}
+.romantic .box{background:#fff;border-radius:20px;padding:20px}
+.romantic .title{color:#d46a6a}
 
-.btn{transition:.3s}
-.btn:hover{transform:scale(1.05)}
+/* ===== MINIMAL ===== */
+.minimal{background:#fff;color:#000}
+.minimal .box{border:1px solid #eee;padding:20px;border-radius:15px}
+.minimal .title{font-weight:bold}
+
+/* ===== ROYAL ===== */
+.royal{background:#111;color:#fff}
+.royal .box{background:rgba(255,255,255,.05);padding:20px;border-radius:20px}
+.royal .title{color:#FFD700}
+
+/* ===== SHARED ===== */
+.parallax{height:220px;background-size:cover;border-radius:20px;margin-bottom:20px}
+.counter{display:flex;justify-content:center;gap:10px;margin-top:10px}
+.counter div{background:#eee;padding:10px;border-radius:10px}
+.royal .counter div{background:#222}
+
+.btn{margin-top:15px;padding:10px;border-radius:25px;cursor:pointer}
+.luxury .btn{background:#556B2F;color:#fff}
+.romantic .btn{background:#d46a6a;color:#fff}
+.minimal .btn{background:#000;color:#fff}
+.royal .btn{background:#FFD700;color:#000}
+
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<div class="text-center p-3">
-<button onclick="show(0)">إسلامي</button>
-<button onclick="show(1)">EN</button>
-<button onclick="show(2)">Modern</button>
-<button onclick="show(3)">مسيحي</button>
+<div class="text-center p-3 bg-white">
+<button onclick="show(0)">Luxury</button>
+<button onclick="show(1)">Romantic</button>
+<button onclick="show(2)">Minimal</button>
+<button onclick="show(3)">Royal</button>
 </div>
 
-<!-- ================= 1 ================= -->
-<div id="s0" class="section active">
-<div class="parallax mb-5" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');"></div>
+<!-- ===== 1 LUXURY ===== -->
+<div id="s0" class="section luxury active">
+<div class="parallax" style="background-image:url('https://images.unsplash.com/photo-1520854221256-17451cc331bf');"></div>
 
-<div class="glass text-center">
-<h2 class="text-3xl text-green-400 mb-3">أحمد & فاطمة</h2>
-<p>10 مايو 2026 - 7 مساءً</p>
+<div class="box text-center">
+<h2 class="title text-3xl">أحمد & فاطمة</h2>
+<p>10 مايو 2026</p>
 
-<div class="counter flex justify-center gap-2 mt-4">
-<div><span id="d0">0</span><br>يوم</div>
-<div><span id="h0">0</span><br>ساعة</div>
-<div><span id="m0">0</span><br>دقيقة</div>
-<div><span id="s0c">0</span><br>ثانية</div>
+<div class="counter">
+<div><span id="d0"></span><br>يوم</div>
+<div><span id="h0"></span><br>ساعة</div>
+<div><span id="m0"></span><br>دقيقة</div>
+<div><span id="s0c"></span><br>ثانية</div>
 </div>
 
-<a href="https://maps.google.com/?q=Dar Al Fouad Hall" target="_blank">📍 الموقع</a>
-
-<div class="mt-5">
-<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded">💌 رسالة</button>
-
-<div class="hidden formBox mt-3 bg-white text-black p-3 rounded">
-<input class="w-full mb-2 p-2 border nameInput" placeholder="اسمك">
-<textarea class="w-full mb-2 p-2 border msgInput" placeholder="رسالتك"></textarea>
-<button onclick="send(this)" class="bg-black text-white w-full p-2">إرسال</button>
-<p class="success hidden text-green-600">تم</p>
+<button class="btn" onclick="toggleForm(this)">رسالة</button>
+<div class="hidden formBox">
+<input placeholder="اسمك" class="w-full border p-2 mt-2">
+<textarea placeholder="رسالتك" class="w-full border p-2 mt-2"></textarea>
+</div>
 </div>
 </div>
 
-</div>
-</div>
+<!-- ===== 2 ROMANTIC ===== -->
+<div id="s1" class="section romantic">
+<div class="parallax" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');"></div>
 
-<!-- ================= 2 ================= -->
-<div id="s1" class="section">
-<div class="parallax mb-5" style="background-image:url('https://images.unsplash.com/photo-1519225421980-715cb0215aed');"></div>
+<div class="box text-center">
+<h2 class="title text-3xl">Omar & Aisha</h2>
 
-<div class="glass text-center">
-<h2 class="text-3xl text-pink-400">Omar & Aisha</h2>
-<p>June 15 2026 - 6 PM</p>
-
-<div class="counter flex justify-center gap-2 mt-4">
-<div><span id="d1">0</span><br>d</div>
-<div><span id="h1">0</span><br>h</div>
-<div><span id="m1">0</span><br>m</div>
-<div><span id="s1c">0</span><br>s</div>
+<div class="counter">
+<div><span id="d1"></span><br>d</div>
+<div><span id="h1"></span><br>h</div>
+<div><span id="m1"></span><br>m</div>
+<div><span id="s1c"></span><br>s</div>
 </div>
 
-<a href="https://maps.google.com/?q=Hilton Cairo" target="_blank">📍 Location</a>
-
-<div class="mt-5">
-<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded">Message</button>
-
-<div class="hidden formBox mt-3 bg-white text-black p-3 rounded">
-<input class="w-full mb-2 p-2 border nameInput" placeholder="Name">
-<textarea class="w-full mb-2 p-2 border msgInput" placeholder="Message"></textarea>
-<button onclick="send(this)" class="bg-black text-white w-full p-2">Send</button>
-<p class="success hidden text-green-600">Done</p>
+<button class="btn" onclick="toggleForm(this)">Message</button>
+<div class="hidden formBox">
+<input placeholder="Name" class="w-full border p-2 mt-2">
+<textarea placeholder="Message" class="w-full border p-2 mt-2"></textarea>
+</div>
 </div>
 </div>
 
-</div>
-</div>
+<!-- ===== 3 MINIMAL ===== -->
+<div id="s2" class="section minimal">
+<div class="parallax" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc');"></div>
 
-<!-- ================= 3 ================= -->
-<div id="s2" class="section">
-<div class="parallax mb-5" style="background-image:url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc');"></div>
+<div class="box text-center">
+<h2 class="title text-2xl">Karim & Sara</h2>
 
-<div class="glass text-center">
-<h2 class="text-3xl text-blue-400">Karim & Sara</h2>
-<p>20 July 2026 - 8 PM</p>
-
-<div class="counter flex justify-center gap-2 mt-4">
-<div><span id="d2">0</span><br>d</div>
-<div><span id="h2">0</span><br>h</div>
-<div><span id="m2">0</span><br>m</div>
-<div><span id="s2c">0</span><br>s</div>
+<div class="counter">
+<div><span id="d2"></span></div>
+<div><span id="h2"></span></div>
+<div><span id="m2"></span></div>
+<div><span id="s2c"></span></div>
 </div>
 
-<a href="https://maps.google.com/?q=Fairmont Nile City" target="_blank">📍 Venue</a>
-
-<div class="mt-5">
-<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded">Send</button>
-
-<div class="hidden formBox mt-3 bg-white text-black p-3 rounded">
-<input class="w-full mb-2 p-2 border nameInput" placeholder="Name">
-<textarea class="w-full mb-2 p-2 border msgInput" placeholder="Message"></textarea>
-<button onclick="send(this)" class="bg-black text-white w-full p-2">Send</button>
-<p class="success hidden text-green-600">Done</p>
+<button class="btn" onclick="toggleForm(this)">Send</button>
+<div class="hidden formBox">
+<input placeholder="Name" class="w-full border p-2 mt-2">
+<textarea placeholder="Message" class="w-full border p-2 mt-2"></textarea>
+</div>
 </div>
 </div>
 
-</div>
-</div>
+<!-- ===== 4 ROYAL ===== -->
+<div id="s3" class="section royal">
+<div class="parallax" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
 
-<!-- ================= 4 ================= -->
-<div id="s3" class="section">
-<div class="parallax mb-5" style="background-image:url('https://images.unsplash.com/photo-1519741497674-611481863552');"></div>
+<div class="box text-center">
+<h2 class="title text-3xl">مينا & مريم</h2>
+<p>الإكليل 4:00 مساءً</p>
 
-<div class="glass text-center">
-<h2 class="text-3xl text-yellow-400">مينا & مريم</h2>
-<p>5 أغسطس 2026</p>
-<p class="text-green-400">الإكليل 4:00</p>
-
-<div class="counter flex justify-center gap-2 mt-4">
-<div><span id="d3">0</span><br>يوم</div>
-<div><span id="h3">0</span><br>ساعة</div>
-<div><span id="m3">0</span><br>دقيقة</div>
-<div><span id="s3c">0</span><br>ثانية</div>
+<div class="counter">
+<div><span id="d3"></span><br>يوم</div>
+<div><span id="h3"></span><br>ساعة</div>
+<div><span id="m3"></span><br>دقيقة</div>
+<div><span id="s3c"></span><br>ثانية</div>
 </div>
 
-<a href="https://maps.google.com/?q=St Mark Church Cairo" target="_blank">⛪ الكنيسة</a><br>
-<a href="https://maps.google.com/?q=JW Marriott Cairo" target="_blank">🎉 القاعة</a>
-
-<div class="mt-5">
-<button onclick="toggleForm(this)" class="btn bg-white text-black px-4 py-2 rounded">رسالة</button>
-
-<div class="hidden formBox mt-3 bg-white text-black p-3 rounded">
-<input class="w-full mb-2 p-2 border nameInput" placeholder="اسمك">
-<textarea class="w-full mb-2 p-2 border msgInput" placeholder="رسالتك"></textarea>
-<button onclick="send(this)" class="bg-black text-white w-full p-2">إرسال</button>
-<p class="success hidden text-green-600">تم</p>
+<button class="btn" onclick="toggleForm(this)">رسالة</button>
+<div class="hidden formBox">
+<input placeholder="اسمك" class="w-full border p-2 mt-2">
+<textarea placeholder="رسالتك" class="w-full border p-2 mt-2"></textarea>
 </div>
 </div>
-
 </div>
-</div>
-
-<!-- MUSIC -->
-<audio id="music" loop>
-<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_c8c8a73467.mp3">
-</audio>
-
-<button onclick="toggleMusic()" style="position:fixed;bottom:10px;left:10px;">🎵</button>
 
 <script>
 function show(i){
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-document.getElementById('s'+i).classList.add('active');
+document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+document.getElementById('s'+i).style.display='block';
 }
 
-function start(prefix,date){
+function countdown(prefix,date){
 setInterval(()=>{
 let diff=new Date(date)-new Date();
-let d=Math.floor(diff/(1000*60*60*24));
-let h=Math.floor((diff/(1000*60*60))%24);
-let m=Math.floor((diff/(1000*60))%60);
-let s=Math.floor((diff/1000)%60);
 
-document.getElementById("d"+prefix).innerText=d;
-document.getElementById("h"+prefix).innerText=h;
-document.getElementById("m"+prefix).innerText=m;
-document.getElementById("s"+prefix+"c").innerText=s;
+document.getElementById("d"+prefix).innerText=Math.floor(diff/(1000*60*60*24));
+document.getElementById("h"+prefix).innerText=Math.floor((diff/(1000*60*60))%24);
+document.getElementById("m"+prefix).innerText=Math.floor((diff/(1000*60))%60);
+document.getElementById("s"+prefix+"c").innerText=Math.floor((diff/1000)%60);
 },1000);
 }
 
-start(0,"May 10 2026 19:00:00");
-start(1,"June 15 2026 18:00:00");
-start(2,"July 20 2026 20:00:00");
-start(3,"August 5 2026 16:00:00");
+countdown(0,"May 10 2026");
+countdown(1,"June 15 2026");
+countdown(2,"July 20 2026");
+countdown(3,"August 5 2026");
 
 function toggleForm(btn){
 btn.nextElementSibling.classList.toggle("hidden");
-}
-
-function send(btn){
-let box=btn.parentElement;
-let name=box.querySelector(".nameInput").value;
-let msg=box.querySelector(".msgInput").value;
-
-if(!name||!msg){alert("اكتب البيانات");return;}
-
-let data=JSON.parse(localStorage.getItem("msgs")||"[]");
-data.push({name,msg});
-localStorage.setItem("msgs",JSON.stringify(data));
-
-box.querySelector(".success").classList.remove("hidden");
-}
-
-function toggleMusic(){
-let m=document.getElementById("music");
-m.paused?m.play():m.pause();
 }
 </script>
 
